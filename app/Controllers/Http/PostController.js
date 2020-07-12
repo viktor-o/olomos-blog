@@ -17,7 +17,7 @@ class PostController {
     response.header('Turbolinks-Location', '/posts/add')
 
     const categories = await Category.all().then(data => data.toJSON())
-    const markdown = '---\ntitle: \nseo_title: \npublished: false\nseo_description: \npost_slug: \nsummary: \n---\n\nThe Title is above...\n\nFront matter above, and write your post here...'.trim()
+    const markdown = '---\ntitle: \nseo_title: \npublished: false \nseo_description: \npost_slug: \nsummary: \n---\n\nThe Title is above...\n\nFront matter above, and write your post here... '.trim()
 
     return view.render('posts.editor', {
       categories,
