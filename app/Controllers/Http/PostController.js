@@ -2,6 +2,7 @@
 
 const Category = use('App/Models/Category')
 const Post = use('App/Models/Post')
+const PostCreator = use('PostCreator')
 
 class PostController {
   async index({ view, response }) {
@@ -27,12 +28,50 @@ class PostController {
   async preview({ request, response }) {
     const { markdown } = request.post()
 
+    //transform md to html
+
+    const {body} = PostCreator.create(markdown)
+
     return response.status(200).json({
-      data: markdown
+      data: body
     })
   }
 
-  async store() {}
+  async store({ request, response  }) {
+    const { markdown, category_id } = request.post()
+
+    // transform md to html
+    // grab post meta data from the front matter
+
+    let {
+      body, 
+      attributes: {
+      title,
+      seo_title,
+      seo_description,
+      seo_keywords,
+      post_slug,
+      summary,
+      published
+    }} = PostCreator.create(markdown)
+
+    post_slug = post_slug || title
+
+    const post = await Post.create({
+      body,
+      markdown,
+      title,
+      seo_title,
+      seo_description,
+      seo_keywords,
+      post_slug,
+      summary,
+      published,
+      category_id
+    }).then(data => data.toJSON())
+
+    return response.redirect('/posts/' + post.slug)
+  }
 
   async show({ params: { slug }, view, response }) {
     const post = await Post.findBy('slug', slug)
