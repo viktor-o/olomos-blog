@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+<<<<<<< HEAD
   <title>Olomo's Blog</title>
 
   {{ css('styles')}}
@@ -9,6 +10,12 @@
     @!section('before-scripts')
         @include('partials.common-scripts')
     @!section('after-scripts')
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hello Adonis</title>
+  {{ css('jumbotron') }}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+>>>>>>> master
 </head>
 <body>
 
@@ -19,6 +26,7 @@
     @!section('after-nav')
 
     @!section('before-main')
+<<<<<<< HEAD
     
         <main id="main-content" role="main" class="container">
             <div class="container">
@@ -38,3 +46,30 @@
 
 </body>
 </html>
+=======
+
+        <main role="main">
+            @!section('main-content')
+        </main>
+
+    @!section('after-main')    
+    
+    @!section('before-footer')
+
+        <footer class="container">
+
+            @include('partials.footer')
+
+        </footer>
+
+    @!section('after-footer')
+    
+    @!section('before-scripts')
+    
+        @include('partials.common-scripts')
+
+    @!section('after-scripts')
+    
+</body>
+</html>
+>>>>>>> master
