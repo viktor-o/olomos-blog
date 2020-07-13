@@ -5,7 +5,12 @@
         <header>
             <h1>{{post.title}}</h1>
         </header>
-
+        <div style='color: blue; font-size: 0.9rem; font-weight: 500; margin-bottom: 10px'>
+                      {{ post.created_at }}
+                    </div>
+        <div>
+        <p></p>
+        </div>
         <div id="post-body">
             {{{post.body}}}
         </div>

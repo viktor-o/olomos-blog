@@ -1,4 +1,4 @@
-const {ServiceProvider} = require('@adonisjs/fold')
+const { ServiceProvider } = require('@adonisjs/fold')
 const PostCreator = require('./PostCreator')
 
 class PostProvider extends ServiceProvider {
