@@ -16,7 +16,6 @@
 const Route = use('Route')
 
 Route.on('/').render('index')
-<<<<<<< HEAD
 Route.on('/page').render('page')
 
 /* Categories */
@@ -37,5 +36,3 @@ Route.get('posts/:slug', 'PostController.show').as('single_post')
 Route.post('posts/preview', 'PostController.preview')
 Route.post('posts', 'PostController.store')
 Route.delete('posts/:id', 'PostController.destroy')
-=======
->>>>>>> master
